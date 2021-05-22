@@ -4,6 +4,7 @@ from time import sleep
 import selenium
 from selenium.common.exceptions import ElementClickInterceptedException
 from selenium.common.exceptions import WebDriverException
+from webdriver_manager.firefox import GeckoDriverManager
 
 post_count = 0
 
@@ -11,7 +12,7 @@ class InstagramBot:
     def __init__(self, username, password):
         self.username = username
         self.password = password
-        self.bot = webdriver.Firefox()
+        self.bot = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
         # Uncomment following line for Chrome browser
         # self.bot = webdriver.Chrome()
